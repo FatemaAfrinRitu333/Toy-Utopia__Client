@@ -4,9 +4,11 @@ import { useContext, useState } from "react";
 import { AuthContext } from '../../../Providers/AuthProvider'
 import SocialLogin from "../SocialLogin/SocialLogin";
 import Swal from 'sweetalert2';
+import useTitle from "../../../Hooks/WebTitle";
 
 
 const Register = () => {
+    useTitle('Toy Utopia | Register');
 
     // const [error, setError] = useState('');
     const { createUser } = useContext(AuthContext);

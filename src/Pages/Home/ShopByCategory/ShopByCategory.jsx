@@ -1,5 +1,6 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import WaterToys from './WaterToys/WaterToys';
 
 
 const ShopByCategory = () => {
@@ -23,6 +24,7 @@ const ShopByCategory = () => {
                     </TabPanel>
                     <TabPanel>
                         <h2 className='text-3xl font-bold font-mono text-center mt-8 text-primary'>Water Sports</h2>
+                        <WaterToys></WaterToys>
                     </TabPanel>
                 </Tabs>
             </div>

@@ -17,7 +17,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />,
-                loader: () => fetch('https://toy-marketplace-server-theta.vercel.app/allToys'),
+                // loader: () => fetch('https://toy-marketplace-server-theta.vercel.app/allToys'),
             },
             {
                 path: '/login',
