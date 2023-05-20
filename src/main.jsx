@@ -4,19 +4,17 @@ import App from './App.jsx'
 import './index.css'
 
 import {
-  createBrowserRouter,
-  RouterProvider,
+  RouterProvider
 } from "react-router-dom";
+import router from './Routes/Routes.jsx';
+import AuthProvider from './Providers/AuthProvider.jsx';
 
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <div>Hello world!</div>,
-  },
-]);
+
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />,
+  <AuthProvider>
+    <RouterProvider router={router} />
+  </AuthProvider>
 )
