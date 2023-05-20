@@ -46,8 +46,8 @@ const Navbar = () => {
         </>
 
     return (
-        <div className="navbar bg-neutral text-neutral-content">
-            <div className="navbar-start">
+        <div className="lg:px-12 navbar bg-neutral text-neutral-content">
+            <div data-aos="fade-down" className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
@@ -61,14 +61,12 @@ const Navbar = () => {
                     <span className='font-bold font-mono'>Toy Utopia</span>
                 </Link>
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <div data-aos="fade-down" className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    {/* <li><a>Item 1</a></li>
-                        <li><a>Item 3</a></li> */}
                     {Menu}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div data-aos="fade-down" className="navbar-end">
                 <div className="dropdown dropdown-end">
                     <div className="tooltip tooltip-left" data-tip={user?.displayName ? user.displayName : 'User Profile'}>
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
