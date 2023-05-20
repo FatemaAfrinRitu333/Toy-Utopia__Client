@@ -42,8 +42,9 @@ const Login = () => {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
-                        text: `User not registered. Please <a href='/'>register</a> first!`,
+                        text: `User not registered. Please register first!`,
                     })
+                    navigate('/register');
                 }
                 else{
                     Swal.fire({

@@ -30,8 +30,8 @@ const Register = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser.user);
-                loggedUser.user.displayName = name;
-                loggedUser.user.photoURL = imgURL;
+                loggedUser.displayName = name;
+                loggedUser.photoURL = imgURL;
 
                 Swal.fire(
                     'Success!',
