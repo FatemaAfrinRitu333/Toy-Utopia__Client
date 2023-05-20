@@ -1,7 +1,10 @@
 import { Link, useRouteError } from 'react-router-dom';
 import errorGif from '../../assets/404.gif';
+import useTitle from '../../Hooks/WebTitle';
 
 const Error = () => {
+
+    useTitle('Error | 404')
 
     const error = useRouteError();
     console.error(error);

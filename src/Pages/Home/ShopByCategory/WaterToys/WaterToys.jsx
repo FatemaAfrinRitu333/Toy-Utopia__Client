@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ToyCard from '../ToyCard/ToyCard';
 
 const WaterToys = () => {
 
@@ -23,8 +24,13 @@ const WaterToys = () => {
         </div>
     }
     return (
-        <div>
-            Toys: {waterToys.length}
+        <div className='mt-7 grid grid-cols-3 gap-3'>
+            {
+                waterToys.map(toy => <ToyCard 
+                key={toy._id}
+                toy={toy}
+                ></ToyCard>)
+            }
         </div>
     );
 };
