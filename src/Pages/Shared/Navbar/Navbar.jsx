@@ -35,7 +35,13 @@ const Navbar = () => {
         <>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/allToys'>All Toys</Link></li>
-            <li><Link to='/addToy'>Add A Toy</Link></li>
+            {user &&
+                <>
+                    <li><Link to='/allToys'>My Toys</Link></li>
+                    <li><Link to='/addToy'>Add A Toy</Link></li>
+                </>
+
+            }
             <li><Link to='/blog'>Blog</Link></li>
         </>
 
@@ -64,7 +70,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 <div className="dropdown dropdown-end">
-                    <div className="tooltip tooltip-left" data-tip={user?.displayName? user.displayName : 'No Name User'}>
+                    <div className="tooltip tooltip-left" data-tip={user?.displayName ? user.displayName : 'User Profile'}>
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
                                 {
