@@ -7,6 +7,8 @@ import Main from '../Layout/Main';
 import Home from '../Pages/Home/Home/Home';
 import Login from '../Pages/UserSign/Login/Login';
 import Register from '../Pages/UserSign/Register/Register';
+import ToyDetail from '../Pages/Home/ShopByCategory/ToyDetail/ToyDetail';
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
     {
@@ -17,7 +19,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />,
-                // loader: () => fetch('https://toy-marketplace-server-theta.vercel.app/allToys'),
+                    
             },
             {
                 path: '/login',
@@ -27,6 +29,11 @@ const router = createBrowserRouter([
                 path: '/register',
                 element: <Register />
             },
+            {
+                path: '/allToys/:id',
+                element: <PrivateRoute><ToyDetail /></PrivateRoute>,
+                loader: ({params}) => fetch(`https://toy-marketplace-server-theta.vercel.app/allToys/${params.id}`)
+            }
         ]
     },
 ]);

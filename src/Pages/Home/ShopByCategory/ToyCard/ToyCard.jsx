@@ -1,16 +1,17 @@
 import React from 'react';
 import Rating from 'react-rating';
-import {AiFillStar, AiOutlineArrowRight, AiOutlineStar} from 'react-icons/ai';
-import { Link } from '@mui/material';
+import { AiFillStar, AiOutlineArrowRight, AiOutlineStar } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 const ToyCard = ({ toy }) => {
 
-    const { rating, price, toyName, toyPicture } = toy;
+    const { _id, rating, price, toyName, toyPicture } = toy;
+    
 
     return (
-        <div className="card w-96 bg-accent/50 shadow-xl" data-aos="fade-up"  data-aos-delay="100"
-        data-aos-duration="1500">
-            <figure><img style={{width: '100%', height: '400px'}} src={toyPicture} alt="Shoes" /></figure>
+        <div className="card w-96 bg-accent/50 shadow-xl" data-aos="fade-up" data-aos-delay="100"
+            data-aos-duration="1500">
+            <figure><img style={{ width: '100%', height: '400px' }} src={toyPicture} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">
                     {toyName}
@@ -29,9 +30,9 @@ const ToyCard = ({ toy }) => {
                         </div>
                     </div>
                     <div className='flex items-center gap-1'>
-                        <button className='btn btn-link lowercase'>
-                                <AiOutlineArrowRight /> View Details
-                        </button>
+                        <Link to={`/allToys/${_id}`}>
+                            <button className="btn btn-link lowercase"><AiOutlineArrowRight /> View Details</button>
+                        </Link>
                     </div>
                 </div>
             </div>
