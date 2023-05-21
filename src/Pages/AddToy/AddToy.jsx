@@ -22,7 +22,7 @@ const AddToy = () => {
         const category = form.category.value;
         const price = form.price.value;
         const quantity = form.quantity.value;
-        // const imgURL = form.imgURL.value;
+        const imgURL = form.imgURL.value;
         const rating = form.rating.value;
         const details = form.details.value;
 
@@ -30,6 +30,7 @@ const AddToy = () => {
             sellerName,
             sellerEmail,
             toyName,
+            imgURL,
             category,
             price,
             quantity,

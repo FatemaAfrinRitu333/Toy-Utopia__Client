@@ -1,22 +1,21 @@
 import React from 'react';
+import useTitle from '../../../Hooks/WebTitle';
 import Rating from 'react-rating';
-import { useLoaderData } from 'react-router-dom';
-import useTitle from '../../../../Hooks/WebTitle';
 import { AiFillStar, AiOutlineArrowDown, AiOutlineStar } from 'react-icons/ai';
 import { FaDollarSign, FaUserTag } from 'react-icons/fa';
-import { MdProductionQuantityLimits, MdCategory } from 'react-icons/md';
+import { useLoaderData } from 'react-router-dom';
+import { MdCategory, MdProductionQuantityLimits } from 'react-icons/md';
 
+const AllToyDetail = () => {
 
-const ToyDetail = () => {
-
-    const { toyName, toyPicture, price, rating, details, sellerEmail, sellerName, subcategory, availableQuantity } = useLoaderData();
+    const { toyName, sellerName, sellerEmail, quantity, price, category,imgURL, rating, details } = useLoaderData();
 
     useTitle(`Toy Utopia | ${toyName}`);
 
     return (
         <div className='container mx-auto my-9'>
             <div className="card lg:card-side bg-base-100 shadow-xl">
-                <figure className='w-full'><img className='h-full w-full' src={toyPicture} alt="Album" /></figure>
+                <figure className='w-full'><img className='h-full w-full' src={imgURL} alt="Album" /></figure>
                 <div className="card-body lg:w-1/2">
                     <h2 className="card-title text-3xl font-mono">{toyName}</h2>
                     <div>
@@ -33,19 +32,19 @@ const ToyDetail = () => {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th><FaDollarSign /> Price:</th>
+                                        <th className='flex items-center gap-1'><FaDollarSign /> Price:</th>
                                         <td className='font-bold text-primary'>$ {price}</td>
                                     </tr>
                                     <tr>
-                                        <th><MdProductionQuantityLimits /> Available Quantity:</th>
-                                        <td>{availableQuantity}</td>
+                                        <th className='flex items-center gap-1'><MdProductionQuantityLimits /> Available Quantity:</th>
+                                        <td>{quantity}</td>
                                     </tr>
                                     <tr>
-                                        <th><MdCategory /> Category:</th>
-                                        <td>{subcategory}</td>
+                                        <th className='flex items-center gap-1'><MdCategory /> Category:</th>
+                                        <td>{category}</td>
                                     </tr>
-                                    <tr>
-                                        <th><AiFillStar /> Ratings:</th>
+                                    <tr className='flx'>
+                                        <th className='flex items-center gap-1'><AiFillStar /> Ratings:</th>
                                         <td className='flex items-center gap-1 text-warning'>
                                             <span>{rating} </span>
                                             <Rating readonly
@@ -75,5 +74,4 @@ const ToyDetail = () => {
     );
 };
 
-export default ToyDetail;
-
+export default AllToyDetail;

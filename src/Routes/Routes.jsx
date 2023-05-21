@@ -12,6 +12,7 @@ import PrivateRoute from './PrivateRoute';
 import AllToys from '../Pages/AllToys/AllToys';
 import MyToys from '../Pages/MyToys/MyToys';
 import AddToy from '../Pages/AddToy/AddToy';
+import AllToyDetail from '../Pages/AllToys/AllToyDetail/AllToyDetail';
 
 const router = createBrowserRouter([
     {
@@ -40,6 +41,11 @@ const router = createBrowserRouter([
             {
                 path: '/allToys',
                 element: <AllToys />, 
+            },
+            {
+                path: '/seller-added-toy-details/:id',
+                element: <PrivateRoute><AllToyDetail /></PrivateRoute>,
+                loader: ({params}) => fetch(`https://toy-marketplace-server-theta.vercel.app/allToys/${params.id}`)
             },
             {
                 path: '/myToys',

@@ -23,7 +23,7 @@ const ToyRow = ({toy}) => {
                 </div>
             </td>
             <th>
-                <Link to='toy-details'>
+                <Link to={`/seller-added-toy-details/${toy._id}`}>
                 <button className="btn btn-outline btn-primary btn-xs">view details</button>
                 </Link>
             </th>

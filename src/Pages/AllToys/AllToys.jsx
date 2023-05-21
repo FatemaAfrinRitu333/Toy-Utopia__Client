@@ -5,7 +5,7 @@ import ToyRow from './ToyRow';
 const AllToys = () => {
 
     const [allToys, setAllToys] = useState([]);
-    const [serchToyName, setSearchToyName] = useState('');
+    const [searchToyName, setSearchToyName] = useState('');
 
     useEffect(()=>{
         fetch('https://toy-marketplace-server-theta.vercel.app/allToys')
@@ -17,8 +17,13 @@ const AllToys = () => {
     },[])
 
     const handleSearch = () => {
-        console.log('helllooo')
-        fetch(`http://localhost:5000/getJobsByText/${searchText}`)
+        fetch(`https://toy-marketplace-server-theta.vercel.app/allToys?toyName=${searchToyName}`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+            },
+            // body: JSON.stringify()
+        })
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
