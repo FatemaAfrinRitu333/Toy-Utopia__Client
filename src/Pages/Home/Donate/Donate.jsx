@@ -4,7 +4,7 @@ const Donate = () => {
     return (
         <div className='container mx-auto my-12'>
             <div className="w-full grid grid-cols-1 lg:grid-cols-3 bg-base-100 shadow-xl rounded-xl">
-                <div data-aos="fade-right" className='rounded-l-xl'>
+                <div data-aos="flip-right" className='rounded-l-xl'>
                     <div className="hero lg:min-h-screen rounded-l-xl" style={{ backgroundImage: `url("https://th.bing.com/th/id/OIP.vvEPhbdnULigelswzNYk1wHaHa?pid=ImgDet&rs=1")`, borderRadius: '12px 0px 0px 12px' }}>
                         <div className="hero-overlay bg-neutral bg-opacity-60 rounded-l-xl"></div>
                         <div className="hero-content text-center text-primary font-mono">
@@ -47,7 +47,7 @@ const Donate = () => {
                     </div>
                 </div>
                 {/* <div className='divider divider-horizontal'></div> */}
-                <div data-aos="fade-left" className=''>
+                <div data-aos="flip-left" className=''>
                     <div className="w-full shadow-2xl bg-accent bg-opacity-70 rounded-r-xl">
                         <form className="card-body w-full lg:min-h-screen">
                             <h2 className='text-2xl my-4 text-primary font-bold font-mono flex items-center justify-center gap-2'>Drop Your Info For Donation</h2>

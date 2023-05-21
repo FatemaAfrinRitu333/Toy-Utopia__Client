@@ -1,4 +1,4 @@
-import { AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
+import { AiOutlineLogin } from "react-icons/ai";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from '../../../Providers/AuthProvider'

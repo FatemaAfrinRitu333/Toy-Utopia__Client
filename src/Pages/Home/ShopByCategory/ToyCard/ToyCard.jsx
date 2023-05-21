@@ -22,8 +22,7 @@ const ToyCard = ({ toy }) => {
 
 
     return (
-        <div className="card w-96 bg-accent/50 shadow-xl" data-aos="fade-up" data-aos-delay="50"
-            data-aos-duration="1000">
+        <div className="card w-96 bg-accent/50 shadow-xl" data-aos="fade-up">
             <figure><img style={{ width: '100%', height: '400px' }} src={toyPicture} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">
@@ -43,7 +42,7 @@ const ToyCard = ({ toy }) => {
                         </div>
                     </div>
                     <div className='flex items-center gap-1'>
-                        <Link to={`/allToys/${_id}`}>
+                        <Link to={`/toyDetail/${_id}`}>
                             <button onClick={handleAlert} className="btn btn-link lowercase"><AiOutlineArrowRight /> View Details</button>
                         </Link>
                     </div>

@@ -37,7 +37,7 @@ const Navbar = () => {
             <li><Link to='/allToys'>All Toys</Link></li>
             {user &&
                 <>
-                    <li><Link to='/allToys'>My Toys</Link></li>
+                    <li><Link to='/myToys'>My Toys</Link></li>
                     <li><Link to='/addToy'>Add A Toy</Link></li>
                 </>
 
@@ -75,7 +75,7 @@ const Navbar = () => {
                                     user?.photoURL ?
                                         <img src={user.photoURL} />
                                         :
-                                        <AiOutlineUserAdd className='text-3xl text-secondary' />
+                                        <AiOutlineUserAdd className='text-3xl text-primary' />
                                 }
                             </div>
                         </label>
