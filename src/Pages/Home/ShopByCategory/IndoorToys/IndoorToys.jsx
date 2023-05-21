@@ -24,7 +24,7 @@ const IndoorToys = () => {
     }
 
     return (
-        <div className='mt-7 grid grid-cols-3 gap-3'>
+        <div className='mt-7 grid grid-cols-1 lg:grid-cols-3 gap-3'>
             {
                 indoorToys.map(toy => <ToyCard 
                 key={toy._id}
