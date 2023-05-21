@@ -1,8 +1,12 @@
 import React, { useEffect } from 'react';
 import { useState } from "react";
 import ToyRow from './ToyRow';
+import SubBanner from '../SubBanner/SubBanner';
+import useTitle from '../../Hooks/WebTitle';
 
 const AllToys = () => {
+    useTitle('Toy Utopia | Add A Toy');
+    const subHeader = 'all toys added by the sellers';
 
     const [allToys, setAllToys] = useState([]);
     const [searchToyName, setSearchToyName] = useState('');
@@ -32,10 +36,9 @@ const AllToys = () => {
     };
 
     return (
-        <div className='my-14 container mx-auto'>
-            
-            <h2 className='text-4xl font-mono font-bold text-center uppercase my-8'>all toys added by the sellers</h2>
-            <div className='flex justify-end my-8'>
+        <div className='mb-14'>
+            <SubBanner subHeader={subHeader}></SubBanner>
+            <div className=' container mx-auto flex justify-end my-8'>
                 <div className="form-control">
                     <div className="input-group">
                         <input onChange={(e) => setSearchToyName(e.target.value)} type="text" placeholder="Search…" className="input input-bordered" />
@@ -45,7 +48,7 @@ const AllToys = () => {
                     </div>
                 </div>
             </div>
-            <div className="overflow-x-auto w-full mx-auto">
+            <div className="container mx-auto overflow-x-auto w-full">
                 <table className="table mx-auto w-screen text-center">
                     <thead>
                         <tr>
