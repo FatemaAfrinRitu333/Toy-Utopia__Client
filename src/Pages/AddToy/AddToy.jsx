@@ -1,27 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import SocialLogin from '../UserSign/SocialLogin/SocialLogin';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { FaBasketballBall } from 'react-icons/fa';
 import { HiOutlineViewGridAdd } from 'react-icons/hi';
 import useTitle from '../../Hooks/WebTitle';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const AddToy = () => {
-
     useTitle('Toy Utopia | Add A Toy');
+
+    const {user} = useContext(AuthContext);
 
     const handleAddToy = (e) => {
         e.preventDefault();
 
         const form = e.target;
-        const sellerName = form.sellerName.value;
-        const sellerEmail = form.sellerEmail.value;
+        const sellerName = user?.displayName || form.sellerName.value;
+        const sellerEmail = user?.email || form.sellerEmail.value;
         const toyName = form.toyName.value;
         const category = form.category.value;
         const price = form.price.value;
         const quantity = form.quantity.value;
-        const imgURL = form.imgURL.value;
+        // const imgURL = form.imgURL.value;
         const rating = form.rating.value;
         const details = form.details.value;
 
@@ -32,25 +33,24 @@ const AddToy = () => {
             category,
             price,
             quantity,
-            imgURL,
             rating,
             details
         }
         
-        fetch('https://toy-marketplace-server-theta.vercel.app/addedToys', {
+        fetch('https://toy-marketplace-server-theta.vercel.app/sellerAddedToys', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json',
+                "content-type": "application/json",
             },
             body: JSON.stringify(newToy),
         })
-        .then(res => res.json())
+        .then(res  => res.json())
         .then(data => {
-            console.log(data);
+            console.log(data)
             if(data.acknowledged){
                 Swal.fire(
                     'Success!',
-                    'Your is added! Please head to the My Toys page to see your added toys.',
+                    'Your order has been placed! Please head to the my booking section to confirm your placed order!',
                     'success'
                   )
                   form.reset();
@@ -66,8 +66,12 @@ const AddToy = () => {
                     <form onSubmit={handleAddToy} className="card-body w-full">
                         <h2 className='text-4xl my-4 text-primary font-bold font-mono flex items-center justify-center gap-2'> <AiOutlinePlus />Add Your Toys Here! <FaBasketballBall /></h2>
                         <div className="flex gap-2">
-                            <input type="text" name='sellerName' placeholder="Seller Full Name" className="input text-black w-1/2" required />
-                            <input type="email" name='sellerEmail' placeholder="Seller Email Address" className="input text-black w-1/2" required />
+                            <input type="text"
+                            defaultValue={user?.displayName}
+                            name='sellerName' placeholder="Seller Full Name" className="input text-black w-1/2" required />
+                            <input type="email"
+                            defaultValue={user?.email}
+                            name='sellerEmail' placeholder="Seller Email Address" className="input text-black w-1/2" required />
                         </div>
                         <div className="flex gap-2">
                             <input type="text" name="toyName" placeholder="Toy Name" className="input text-black w-1/2" required />
@@ -77,7 +81,6 @@ const AddToy = () => {
                                 <option>Outdoor Games</option>
                                 <option>Water Games</option>
                             </select>
-                            {/* <input type="option" name="category" placeholder="Toy Sub Category" className="input text-black w-1/2" required /> */}
                         </div>
                         <div className="flex gap-2">
                             <input type="number" name="price" placeholder="Price of the Toy" className="input text-black w-1/2" required />
