@@ -36,7 +36,26 @@ const AddToy = () => {
             rating,
             details
         }
-        console.log(newToy)
+        
+        fetch('https://toy-marketplace-server-theta.vercel.app/addedToys', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(newToy),
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.acknowledged){
+                Swal.fire(
+                    'Success!',
+                    'Your is added! Please head to the My Toys page to see your added toys.',
+                    'success'
+                  )
+                  form.reset();
+            }
+        })
     }
 
     return (
@@ -52,7 +71,13 @@ const AddToy = () => {
                         </div>
                         <div className="flex gap-2">
                             <input type="text" name="toyName" placeholder="Toy Name" className="input text-black w-1/2" required />
-                            <input type="option" name="category" placeholder="Toy Sub Category" className="input text-black w-1/2" required />
+                            <select name='category' className="select w-1/2 text-black">
+                                <option disabled selected>Toy Sub Category</option>
+                                <option>Indoor Games</option>
+                                <option>Outdoor Games</option>
+                                <option>Water Games</option>
+                            </select>
+                            {/* <input type="option" name="category" placeholder="Toy Sub Category" className="input text-black w-1/2" required /> */}
                         </div>
                         <div className="flex gap-2">
                             <input type="number" name="price" placeholder="Price of the Toy" className="input text-black w-1/2" required />
