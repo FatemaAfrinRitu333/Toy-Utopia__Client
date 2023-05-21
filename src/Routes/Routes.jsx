@@ -35,7 +35,7 @@ const router = createBrowserRouter([
             {
                 path: '/toyDetail/:id',
                 element: <PrivateRoute><ToyDetail /></PrivateRoute>,
-                loader: ({params}) => fetch(`https://toy-marketplace-server-theta.vercel.app/allToys/${params.id}`)
+                loader: ({params}) => fetch(`https://toy-marketplace-server-theta.vercel.app/toyDetail/${params.id}`)
             },
             {
                 path: '/allToys',
