@@ -18,7 +18,7 @@ const Gallery = () => {
 
   return (
     <div>
-      <div className="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 gap-0">
+      <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-3 gap-0">
         {images.map((imageUrl, index) => (
           <div key={index}  className="aspect-w-1 aspect-h-1">
             <img data-aos="fade-up"
