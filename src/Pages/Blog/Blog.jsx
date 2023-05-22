@@ -32,18 +32,26 @@ const Blog = () => {
                             <tbody>
                                 {/* row 1 */}
                                 <tr>
-                                    <td>1</td>
-                                    <td>Cy Ganderton</td>
+                                    <td>SQL databases are primarily called RDBMS or Relational Database</td>
+                                    <td>Primarily called non-relational or distributed database. </td>
                                 </tr>
                                 {/* row 2 */}
                                 <tr>
-                                    <td>2</td>
-                                    <td>Hart Hagerty</td>
+                                    <td>Structured query language (SQL)</td>
+                                    <td>No declarative query language</td>
                                 </tr>
                                 {/* row 3 */}
                                 <tr>
-                                    <td>3</td>
-                                    <td>Brice Swyre</td>
+                                    <td>SQL databases are table based databases</td>
+                                    <td>No-SQL databases can be document based, key-value pairs, graph databases</td>
+                                </tr>
+                                <tr>
+                                    <td>SQL databased have a predefined schema</td>
+                                    <td>use dynamic schema for unstructured data</td>
+                                </tr>
+                                <tr>
+                                    <td>ex: Oracle, Postgres, MySQL and MS-SQL</td>
+                                    <td>ex: mongoDB, redis, neo4j, cassendra, Hbase</td>
                                 </tr>
                             </tbody>
                         </table>
