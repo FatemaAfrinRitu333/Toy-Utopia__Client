@@ -5,6 +5,7 @@ import SubBanner from '../SubBanner/SubBanner';
 import useTitle from '../../Hooks/WebTitle';
 import { GrUpdate } from 'react-icons/gr';
 import Swal from 'sweetalert2';
+import { FaSearch } from 'react-icons/fa';
 
 const MyToys = () => {
     useTitle('Toy Utopia | My Toys')
@@ -26,6 +27,9 @@ const MyToys = () => {
             });
     }, [user]);
 
+    const handleSort = (text) =>{
+        fetch(`https://toy-utopia-server-production.up.railway.app/myToys?sellerEmail=${user?.email}`)
+    }
     const handleDelete = (_id) => {
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
@@ -88,6 +92,15 @@ const MyToys = () => {
     return (
         <div>
             <SubBanner subHeader={`Toys Added By ${user?.email}`}></SubBanner>
+            <div className=' container mx-auto flex justify-start my-8'>
+                <div className="dropdown dropdown-hover">
+                    <label tabIndex={0} className="btn btn-outline btn-accent m-1"><FaSearch /> Sort</label>
+                    <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                        <li className='text-sm'><a><button onClick={()=>handleSort('LtoH')}>Price: Low to High</button></a></li>
+                        <li className='text-sm'><a><button onClick={()=>handleSort('HtoL')}>Price: Low to High</button></a></li>
+                    </ul>
+                </div>
+            </div>
             <div className="container mx-auto overflow-x-auto w-full">
                 <table className="table mx-auto w-screen text-center">
                     <thead>
