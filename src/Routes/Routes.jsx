@@ -13,6 +13,7 @@ import AllToys from '../Pages/AllToys/AllToys';
 import MyToys from '../Pages/MyToys/MyToys';
 import AddToy from '../Pages/AddToy/AddToy';
 import AllToyDetail from '../Pages/AllToys/AllToyDetail/AllToyDetail';
+import UpdateMyToy from '../Pages/MyToys/UpdateMyToy/UpdateMyToy';
 
 const router = createBrowserRouter([
     {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
             {
                 path: '/toyDetail/:id',
                 element: <PrivateRoute><ToyDetail /></PrivateRoute>,
-                loader: ({params}) => fetch(`https://toy-marketplace-server-theta.vercel.app/toyDetail/${params.id}`)
+                loader: ({params}) => fetch(`https://toy-utopia-server-production.up.railway.app/toyDetail/${params.id}`)
             },
             {
                 path: '/allToys',
@@ -45,11 +46,16 @@ const router = createBrowserRouter([
             {
                 path: '/seller-added-toy-details/:id',
                 element: <PrivateRoute><AllToyDetail /></PrivateRoute>,
-                loader: ({params}) => fetch(`https://toy-marketplace-server-theta.vercel.app/allToys/${params.id}`)
+                loader: ({params}) => fetch(`https://toy-utopia-server-production.up.railway.app/allToys/${params.id}`)
             },
             {
                 path: '/myToys',
                 element: <MyToys /> 
+            },
+            {
+                path: '/updateMyToys/:id',
+                element: <UpdateMyToy />,
+                loader: ({params}) => fetch(`https://toy-utopia-server-production.up.railway.app/myToys/${params.id}`)
             },
             {
                 path: '/addToy',

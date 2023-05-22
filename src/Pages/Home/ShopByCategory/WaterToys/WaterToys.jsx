@@ -9,7 +9,7 @@ const WaterToys = () => {
     
     useEffect(()=>{
         setLoading(true)
-        fetch('https://toy-marketplace-server-theta.vercel.app/waterToys')
+        fetch('https://toy-utopia-server-production.up.railway.app/waterToys')
         .then(res=> res.json())
         .then(data=> {
             console.log(data);

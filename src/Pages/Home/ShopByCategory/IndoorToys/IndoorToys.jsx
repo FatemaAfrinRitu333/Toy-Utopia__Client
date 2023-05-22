@@ -8,7 +8,7 @@ const IndoorToys = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch('https://toy-marketplace-server-theta.vercel.app/indoorToys')
+        fetch('https://toy-utopia-server-production.up.railway.app/indoorToys')
             .then(res => res.json())
             .then(data => {
                 console.log(data);

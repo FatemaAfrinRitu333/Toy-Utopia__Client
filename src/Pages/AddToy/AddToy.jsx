@@ -38,7 +38,7 @@ const AddToy = () => {
             details
         }
         
-        fetch('https://toy-marketplace-server-theta.vercel.app/sellerAddedToys', {
+        fetch('https://toy-utopia-server-production.up.railway.app/sellerAddedToys', {
             method: 'POST',
             headers: {
                 "content-type": "application/json",

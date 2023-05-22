@@ -9,12 +9,11 @@ import Swal from 'sweetalert2';
 const MyToys = () => {
     useTitle('Toy Utopia | My Toys')
 
-    const { user, loading, setLoading } = useContext(AuthContext);
+    const { user, loading } = useContext(AuthContext);
     const [myToy, setMyToy] = useState([]);
 
-    const URL = `https://toy-marketplace-server-theta.vercel.app/myToys?sellerEmail=${user?.email}`
     useEffect(() => {
-        fetch(URL, {
+        fetch(`https://toy-utopia-server-production.up.railway.app/myToys?sellerEmail=${user?.email}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -24,9 +23,8 @@ const MyToys = () => {
             .then((res) => res.json())
             .then((data) => {
                 setMyToy(data)
-                setLoading(false)
             });
-    }, [URL, setLoading]);
+    }, [user]);
 
     const handleDelete = (_id) => {
         const swalWithBootstrapButtons = Swal.mixin({
@@ -46,7 +44,7 @@ const MyToys = () => {
             reverseButtons: true
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://toy-marketplace-server-theta.vercel.app/myToys/${_id}`, {
+                fetch(`https://toy-utopia-server-production.up.railway.app/myToys/${_id}`, {
                     method: 'DELETE',
                     headers: {
                         'content-type': 'application/json',

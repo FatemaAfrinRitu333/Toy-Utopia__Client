@@ -3,6 +3,7 @@ import { useState } from "react";
 import ToyRow from './ToyRow';
 import SubBanner from '../SubBanner/SubBanner';
 import useTitle from '../../Hooks/WebTitle';
+import Swal from 'sweetalert2';
 
 const AllToys = () => {
     useTitle('Toy Utopia | Add A Toy');
@@ -11,17 +12,17 @@ const AllToys = () => {
     const [allToys, setAllToys] = useState([]);
     const [searchToyName, setSearchToyName] = useState('');
 
-    useEffect(()=>{
-        fetch('https://toy-marketplace-server-theta.vercel.app/allToys')
-        .then(res => res.json())
-        .then(data=> {
-            console.log(data)
-            setAllToys(data)
-        })
-    },[])
+    useEffect(() => {
+        fetch('https://toy-utopia-server-production.up.railway.app/allToys')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                setAllToys(data)
+            })
+    }, [])
 
     const handleSearch = () => {
-        fetch(`https://toy-marketplace-server-theta.vercel.app/allToys?toyName=${searchToyName}`, {
+        fetch(`https://toy-utopia-server-production.up.railway.app/allToys?toyName=${searchToyName}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -30,8 +31,17 @@ const AllToys = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
-                setAllToys(data);
+                if (data.length > 0) {
+                    console.log(data);
+                    setAllToys(data);
+                }
+                else{
+                    return Swal.fire(
+                        'Oops!',
+                        `No toy(s) found with the name ${searchToyName}`,
+                        'error'
+                      )
+                }
             });
     };
 
@@ -57,12 +67,12 @@ const AllToys = () => {
                             <th>Description</th>
                         </tr>
                     </thead>
-                        <tbody>
-                           {allToys.map(toy=> <ToyRow
-                           key={toy._id}
-                           toy={toy}
-                           ></ToyRow>)}
-                        </tbody>
+                    <tbody>
+                        {allToys.map(toy => <ToyRow
+                            key={toy._id}
+                            toy={toy}
+                        ></ToyRow>)}
+                    </tbody>
                     <tfoot>
                         <tr>
                             <th>Seller</th>
