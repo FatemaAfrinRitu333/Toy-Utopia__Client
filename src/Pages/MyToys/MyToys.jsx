@@ -5,7 +5,7 @@ import SubBanner from '../SubBanner/SubBanner';
 import useTitle from '../../Hooks/WebTitle';
 import { GrUpdate } from 'react-icons/gr';
 import Swal from 'sweetalert2';
-import { FaSearch } from 'react-icons/fa';
+import { BsArrowDownUp } from 'react-icons/bs';
 
 const MyToys = () => {
     useTitle('Toy Utopia | My Toys')
@@ -23,13 +23,26 @@ const MyToys = () => {
         })
             .then((res) => res.json())
             .then((data) => {
+                console.log(data)
                 setMyToy(data)
             });
     }, [user]);
 
     const handleSort = (text) =>{
-        fetch(`https://toy-utopia-server-production.up.railway.app/myToys?sellerEmail=${user?.email}`)
+        fetch(`https://toy-utopia-server-production.up.railway.app/myToys?sellerEmail=${user?.email}&order=${text}`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify()
+        })
+        .then(res=> res.json())
+        .then(data=>{
+            console.log(data)
+            setMyToy(data)
+        })
     }
+
     const handleDelete = (_id) => {
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
@@ -94,10 +107,10 @@ const MyToys = () => {
             <SubBanner subHeader={`Toys Added By ${user?.email}`}></SubBanner>
             <div className=' container mx-auto flex justify-start my-8'>
                 <div className="dropdown dropdown-hover">
-                    <label tabIndex={0} className="btn btn-outline btn-accent m-1"><FaSearch /> Sort</label>
+                    <label tabIndex={0} className="btn btn-outline btn-accent m-1"><BsArrowDownUp /> Sort By Price</label>
                     <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li className='text-sm'><a><button onClick={()=>handleSort('LtoH')}>Price: Low to High</button></a></li>
-                        <li className='text-sm'><a><button onClick={()=>handleSort('HtoL')}>Price: Low to High</button></a></li>
+                        <li className='text-sm'><a><button onClick={()=>handleSort('ascending')}>Low to High</button></a></li>
+                        <li className='text-sm'><a><button onClick={()=>handleSort('descending')}>Low to High</button></a></li>
                     </ul>
                 </div>
             </div>
@@ -107,7 +120,7 @@ const MyToys = () => {
                         <tr>
                             <th>
                                 <label>
-                                    <input type="checkbox" className="checkbox" disabled />
+                                    Delete
                                 </label>
                             </th>
                             <th>Seller</th>

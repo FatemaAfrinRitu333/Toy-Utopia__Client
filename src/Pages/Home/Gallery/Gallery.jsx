@@ -1,6 +1,7 @@
 import React from 'react';
 
-const Gallery = () => {
+const Gallery = () => { 
+
   const images = [
     'https://ae01.alicdn.com/kf/HTB1ziEWQpXXXXX1aXXXq6xXFXXXC/1-Set-Golf-Toys-for-Children-Multicolor-Plastic-Outdoor-Backyard-Sport-Games-Kids-Interest-Development-Toy.jpg',
     'https://images-na.ssl-images-amazon.com/images/I/61f-%2BqKZ1WL.jpg',
@@ -17,10 +18,10 @@ const Gallery = () => {
   ];
 
   return (
-    <div>
+    <div className='overflow-hidden'>
       <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-3 gap-0">
         {images.map((imageUrl, index) => (
-          <div key={index}  className="aspect-w-1 aspect-h-1">
+          <div key={index}  className="aspect-w-1 aspect-h-1 hover:-translate-y-1 hover:scale-110 duration-300 overflow-hidden">
             <img data-aos="fade-up"
               src={imageUrl}
               alt={`Image ${index + 1}`}

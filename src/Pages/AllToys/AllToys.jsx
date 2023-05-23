@@ -58,6 +58,7 @@ const AllToys = () => {
                     </div>
                 </div>
             </div>
+            toys: {allToys.length}
             <div className="container mx-auto overflow-x-auto w-full">
                 <table className="table mx-auto w-screen text-center">
                     <thead>

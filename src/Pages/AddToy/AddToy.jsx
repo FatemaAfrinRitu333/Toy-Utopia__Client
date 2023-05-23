@@ -20,7 +20,8 @@ const AddToy = () => {
         const sellerEmail = user?.email || form.sellerEmail.value;
         const toyName = form.toyName.value;
         const category = form.category.value;
-        const price = form.price.value;
+        const stringPrice = form.price.value;
+        const price = parseFloat(stringPrice);
         const quantity = form.quantity.value;
         const imgURL = form.imgURL.value;
         const rating = form.rating.value;
