@@ -13,7 +13,7 @@ const AllToys = () => {
     const [searchToyName, setSearchToyName] = useState('');
 
     useEffect(() => {
-        fetch('https://toy-utopia-server-production.up.railway.app/allToys')
+        fetch('https://toy-utopia.onrender.com/allToys')
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -22,7 +22,7 @@ const AllToys = () => {
     }, [])
 
     const handleSearch = () => {
-        fetch(`https://toy-utopia-server-production.up.railway.app/allToys?toyName=${searchToyName}`, {
+        fetch(`https://toy-utopia.onrender.com/allToys?toyName=${searchToyName}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -58,7 +58,7 @@ const AllToys = () => {
                     </div>
                 </div>
             </div>
-            toys: {allToys.length}
+            {/* toys: {allToys.length} */}
             <div className="container mx-auto overflow-x-auto w-full">
                 <table className="table mx-auto w-screen text-center">
                     <thead>

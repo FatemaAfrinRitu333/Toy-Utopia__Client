@@ -21,7 +21,7 @@ const UpdateMyToy = () => {
         const updatedMyToy = { price, quantity, details };
         // console.log(updatedMyToy)
 
-        fetch(`https://toy-utopia-server-production.up.railway.app/myToys/${_id}`, {
+        fetch(`https://toy-utopia.onrender.com/myToys/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

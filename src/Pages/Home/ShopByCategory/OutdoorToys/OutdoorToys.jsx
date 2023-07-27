@@ -8,7 +8,7 @@ const OutdoorToys = () => {
 
     useEffect(()=>{
         setLoading(true)
-        fetch('https://toy-utopia-server-production.up.railway.app/outdoorToys')
+        fetch('https://toy-utopia.onrender.com/outdoorToys')
         .then(res=> res.json())
         .then(data=> {
             console.log(data);

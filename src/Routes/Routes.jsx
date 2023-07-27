@@ -38,7 +38,7 @@ const router = createBrowserRouter([
             {
                 path: '/toyDetail/:id',
                 element: <PrivateRoute><ToyDetail /></PrivateRoute>,
-                loader: ({params}) => fetch(`https://toy-utopia-server-production.up.railway.app/toyDetail/${params.id}`)
+                loader: ({params}) => fetch(`https://toy-utopia.onrender.com/toyDetail/${params.id}`)
             },
             {
                 path: '/allToys',
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
             {
                 path: '/seller-added-toy-details/:id',
                 element: <PrivateRoute><AllToyDetail /></PrivateRoute>,
-                loader: ({params}) => fetch(`https://toy-utopia-server-production.up.railway.app/allToys/${params.id}`)
+                loader: ({params}) => fetch(`https://toy-utopia.onrender.com/allToys/${params.id}`)
             },
             {
                 path: '/myToys',
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
             {
                 path: '/updateMyToys/:id',
                 element: <UpdateMyToy />,
-                loader: ({params}) => fetch(`https://toy-utopia-server-production.up.railway.app/myToys/${params.id}`)
+                loader: ({params}) => fetch(`https://toy-utopia.onrender.com/myToys/${params.id}`)
             },
             {
                 path: '/addToy',

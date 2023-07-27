@@ -14,7 +14,7 @@ const MyToys = () => {
     const [myToy, setMyToy] = useState([]);
 
     useEffect(() => {
-        fetch(`https://toy-utopia-server-production.up.railway.app/myToys?sellerEmail=${user?.email}`, {
+        fetch(`https://toy-utopia.onrender.com/myToys?sellerEmail=${user?.email}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -29,7 +29,7 @@ const MyToys = () => {
     }, [user]);
 
     const handleSort = (text) =>{
-        fetch(`https://toy-utopia-server-production.up.railway.app/myToys?sellerEmail=${user?.email}&order=${text}`, {
+        fetch(`https://toy-utopia.onrender.com/myToys?sellerEmail=${user?.email}&order=${text}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -61,7 +61,7 @@ const MyToys = () => {
             reverseButtons: true
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://toy-utopia-server-production.up.railway.app/myToys/${_id}`, {
+                fetch(`https://toy-utopia.onrender.com/myToys/${_id}`, {
                     method: 'DELETE',
                     headers: {
                         'content-type': 'application/json',

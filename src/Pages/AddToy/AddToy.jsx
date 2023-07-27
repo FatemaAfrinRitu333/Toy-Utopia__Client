@@ -39,7 +39,7 @@ const AddToy = () => {
             details
         }
         
-        fetch('https://toy-utopia-server-production.up.railway.app/sellerAddedToys', {
+        fetch('https://toy-utopia.onrender.com/sellerAddedToys', {
             method: 'POST',
             headers: {
                 "content-type": "application/json",
